@@ -11,12 +11,18 @@ describe('Routes', ()=> {
             expect(response.status).to.equal(200)
             expect(response.text).to.include('The Acme API')
         })
+        
     })
     describe('GET /api/products', ()=> {
         it('returns products', async()=> {
             const response = await app.get('/api/products')
             expect(response.status).to.equal(200)
             expect(response.body.length).to.equal(2)
+        })
+        it('sends a cors header', async()=> {
+            const response = await app.get('/api/products')
+            expect(response.status).to.equal(200)
+            expect(response.headers['access-control-allow-origin']).to.equal('*')
         })
     })
 
