@@ -1,3 +1,7 @@
+// need to modify travis configuration file and add db
+
+
+
 const Sequelize = require('sequelize')
 const {STRING} = Sequelize
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db')
